@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
 
 
 {% block content %}
 
     <h3>My second Vue app goes here</h3>
+
+    <div id="app">
+        <app></app>
+    </div>
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'vue_app_02' %}
 
 {% endblock %}
