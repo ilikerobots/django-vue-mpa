@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
 
 
 {% block content %}
@@ -7,5 +8,19 @@
         <li><a href="{% url 'vue_app_01' %}">Vue App 01</a></li>
         <li><a href="{% url 'vue_app_02' %}">Vue App 02</a></li>
     </ul>
+
+    <hr>
+
+    {% with msg0="The Left Counter" msg1="The Right Counter" %}
+        <div id="hello_world_a" style="width: 49%; display: inline-block">
+            <hello-world msg="{{ msg0 }}"></hello-world>
+        </div>
+        <div id="hello_world_b" style="width: 49%; display: inline-block">
+            <hello-world msg="{{ msg1 }}"></hello-world>
+        </div>
+    {% endwith %}
+
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'index' %}
 
 {% endblock %}
