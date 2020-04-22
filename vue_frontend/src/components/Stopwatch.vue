@@ -36,7 +36,7 @@
     text-align: center;
   }
 
-  .stopwatch h5 {
+  .stopwatch h3 {
     color: #454545;
   }
 

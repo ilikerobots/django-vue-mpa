@@ -3,9 +3,13 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPl
 
 
 const pages = {
+    "stopwatch": {
+        entry: "./src/stopwatch.js",
+        chunks: ["chunk-moment", "chunk-vendors"],
+    },
     "index": {
         entry: "./src/index.js",
-        chunks: ["chunk-moment", "chunk-vendors"],
+        chunks: ["chunk-vendors"],
     },
     'vue_app_01': {
         entry: './src/main.js',
@@ -22,7 +26,7 @@ module.exports = {
     filenameHashing: false,
     productionSourceMap: false,
     publicPath: process.env.NODE_ENV === 'production'
-        ? ''
+        ? 'static/vue'
         : 'http://localhost:8080/',
     outputDir: '../django_vue_mpa/static/vue/',
 

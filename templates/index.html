@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load render_bundle from webpack_loader %}
+{% load lazy_render_bundle from lazy_webpack_loader %}
 
 
 {% block content %}
@@ -21,12 +22,28 @@
     {% endwith %}
     
     <br />
+
+    <div style="text-align: center">
+      <input id="button_loader" type="button" value="Load stopwatch">
+    </div>
+
     <div id="stopwatch">
         <stopwatch></stopwatch>
     </div>
 
-    {% render_bundle 'chunk-moment' %}
     {% render_bundle 'chunk-vendors' %}
     {% render_bundle 'index' %}
+
+
+    <script>
+        let stopwatchBtn = document.getElementById('button_loader');
+        stopwatchBtn.addEventListener('click', function (e) {
+            stopwatchBtn.style.visibility = "hidden";
+            {#  not necessary to render chunk-moment if stopwatch vue component is imported dynamically #}
+            {# {% lazy_render_bundle 'chunk-moment' %} #}
+            {% lazy_render_bundle 'stopwatch' %}
+        });
+
+    </script>
 
 {% endblock %}
