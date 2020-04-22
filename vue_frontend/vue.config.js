@@ -1,9 +1,11 @@
 const BundleTracker = require("webpack-bundle-tracker");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+
 
 const pages = {
     "index": {
         entry: "./src/index.js",
-        chunks: ["chunk-vendors"],
+        chunks: ["chunk-moment", "chunk-vendors"],
     },
     'vue_app_01': {
         entry: './src/main.js',
@@ -29,6 +31,12 @@ module.exports = {
         config.optimization
             .splitChunks({
                 cacheGroups: {
+                    moment: {
+                        test: /[\\/]node_modules[\\/]moment/,
+                        name: "chunk-moment",
+                        chunks: "all",
+                        priority: 5
+                    },
                     vendor: {
                         test: /[\\/]node_modules[\\/]/,
                         name: "chunk-vendors",
@@ -48,6 +56,9 @@ module.exports = {
             .plugin('BundleTracker')
             .use(BundleTracker, [{filename: '../vue_frontend/webpack-stats.json'}]);
 
+        // Uncomment below to analyze bundle sizes
+        // config.plugin("BundleAnalyzerPlugin").use(BundleAnalyzerPlugin);
+        
         config.resolve.alias
             .set('__STATIC__', 'static')
 
