@@ -2,6 +2,7 @@ import Vue from "vue/dist/vue.js"; // See note about import below
 import Vuex from "vuex";
 import storePlugin from "./vuex/vuex_store_as_plugin";
 import HelloWorld from "./components/HelloWorld";
+import Stopwatch from "./components/Stopwatch";
 
 Vue.use(Vuex);
 Vue.use(storePlugin);
@@ -19,6 +20,10 @@ new Vue({
 new Vue({
   el: "#hello_world_b",
   components: {HelloWorld}
+});
+new Vue({
+  el: "#stopwatch",
+  components: {Stopwatch}
 });
 
 // Include any other components on the page
