@@ -8,7 +8,7 @@
     import * as moment from "moment";
 
     export default {
-        name: 'HelloWorld',
+        name: 'Stopwatch',
         data() {
             return {
                 elapsedTime: 0,
