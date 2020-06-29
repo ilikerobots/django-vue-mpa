@@ -16,5 +16,5 @@ Specifically, the application features:
   * Standard use of Django templating where desired
   
   
-To see this techiques utilized in a actual production scenario, take a look at the [Sidetrip Tours](https://www.sidetriptours.com) website.
+To see these techniques utilized in an actual production scenario, take a look at the [Sidetrip Tours](https://www.sidetriptours.com) website.
 
