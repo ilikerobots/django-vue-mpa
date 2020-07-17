@@ -1,4 +1,4 @@
-**If you are here because you want to jumpstart your own Vue + Django project using these methods, then check out the [Django Vue Cookiecutter](https://github.com/ilikerobots/cookiecutter-vue-django) instead**.  The cookiecutter project is more flexible, has more options, and has better demonstrations of Vue + Django.  
+**If you are here because you want to jumpstart your own Vue + Django project using these methods, then check out the [Django Vue Cookiecutter](https://github.com/ilikerobots/cookiecutter-vue-django) instead**.  The cookiecutter project is more flexible, has more options, has better demonstrations of Vue + Django, and is intended for production deployment.  
 
 This is the companion repository to the series of articles
  * [Vue + Django — Best of Both Frontends](https://medium.com/js-dojo/vue-django-best-of-both-frontends-701307871478)
