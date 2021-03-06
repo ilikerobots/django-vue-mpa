@@ -1,15 +1,7 @@
-import Vue from "vue/dist/vue.js";
-import Vuex from "vuex";
-import storePlugin from "./vuex/vuex_store_as_plugin";
-import App02 from './App.vue'
+import {createAppInEl, createSharedStore} from "@/util/create_app_utils";
+import App02 from "@/App02";
+import CounterModule from "@/vuex/vuex_module_counter";
 
-Vue.use(Vuex);
-Vue.use(storePlugin);
-Vue.config.productionTip = false;
-
-/* NOTE: unlike index.js, we are not passing props from our template, so the following render/mount 
-  syntax is ok */
-
-new Vue({
-    render: h => h(App02),
-}).$mount('#app');
+createAppInEl(App02, createSharedStore({
+    counter: CounterModule,
+}), "#app");

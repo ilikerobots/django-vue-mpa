@@ -10,11 +10,11 @@
     </div>
 
     {% with msg0="The Left Counter" msg1="The Right Counter" %}
-        <div id="hello_world_a" style="width: 49%; display: inline-block">
-            <hello-world msg="{{ msg0 }}"></hello-world>
+        <div id="hello_world_a" data-msg="{{ msg0 }}" style="width: 49%; display: inline-block">
+            <hello-world></hello-world>
         </div>
-        <div id="hello_world_b" style="width: 49%; display: inline-block">
-            <hello-world msg="{{ msg1 }}"></hello-world>
+        <div id="hello_world_b" data-msg="{{ msg1 }}" style="width: 49%; display: inline-block">
+            <hello-world></hello-world>
         </div>
     {% endwith %}
 
