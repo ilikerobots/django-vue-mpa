@@ -1,6 +1,7 @@
 <template>
   <div class="stopwatch">
     <h3>This component was loaded {{ formattedTime }}</h3>
+    <h3 v-if="showCountdown">Seconds remaining:  {{ secondsRemaining }}</h3>
   </div>
 </template>
 
@@ -9,6 +10,10 @@
 
     export default {
         name: 'Stopwatch',
+        props: {
+            showCountdown: Boolean,
+            countdown: Number,
+        },
         data() {
             return {
                 elapsedTime: 0,
@@ -24,6 +29,9 @@
             formattedTime() {
                 let secs = this.elapsedTime / 1000;
                 return moment.duration(0 - secs, "second").humanize(true) + ` (${secs}s)`;
+            },
+            secondsRemaining() {
+                return this.countdown -  this.elapsedTime / 1000;
             }
         },
         methods: {},
