@@ -14,7 +14,9 @@ export const createSharedStore = (modules) => {
     return new createStore({
         plugins: [
             createPersistedState({
-                paths: Object.values(modules).map(m => m.persistentPaths ?? []).flat(),
+                paths: Object.entries(modules).map(
+                    ([mName , m]) => 'persistentPaths' in m ? m.persistentPaths.map(path => mName + "." + path) : []
+                ).flat(),
             })
         ],
         modules: modules,
